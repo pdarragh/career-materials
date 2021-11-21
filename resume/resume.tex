@@ -1,0 +1,180 @@
+\documentclass{article}
+
+\usepackage[fontsize=9.8pt]{fontsize}
+
+% We use 0.5in margins for the resume.
+\usepackage[margin=0.5in]{cv}
+
+% Disable page numbers.
+\pagenumbering{gobble}
+
+% Adjust column widths.
+\setlength{\cvleftcolumnwidth}{1in}
+\setlength{\cvrightcolumnwidth}{6.25in}
+
+% Set header information.
+\name{Pierce}{Darragh}
+\location{University of Maryland, MD, USA}
+\email{pierce.darragh@gmail.com}
+\website{pdarragh.github.io}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Biographical Information
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeheader{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Education
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Education}
+
+\begin{cvlist}
+  % UMD
+  \cvsubheading{University of Maryland}{College Park, MD, USA}
+  \cvdegree[\ ]{2021--Present}{PhD in Computer Science, advised by Dr. David Van
+    Horn}
+  \cvinfo{Specializing in the usability of programming languages.}
+  \cvinfo{Selected coursework: program analysis (using Coq), randomized testing
+    and verification.}
+
+  % U of U
+  \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
+  \cvdegree[GPA:\ 3.3/4]{2012--2018}{BS/MS in Computer Science, Minor in
+    Linguistics}
+  \cvinfo{Selected coursework: operational semantics, compilers, advanced OS,
+    NLP, phonetics and phonology.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Experience
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Research and Industrial Experience}
+
+\begin{cvlist}
+  \cvsubheading{University of Maryland}{College Park, MD, USA}
+
+  % CMSC 330 TA
+  \cvposition{2021--Present}{Graduate Teaching Assistant}{CMSC 330 (Programming
+    Languages)}
+  \cvitem{Hold office hours, teach weekly discussion, and help write and grade
+    student quizzes and exams.}
+
+  \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
+
+  % SweetPea
+  \cvposition{2020--2021}{Research Associate}{PI:\ Matthew Flatt}
+  \cvinfo{Contributed to research on SweetPea: a Python DSL for specifying
+    factorial experimental designs and automatically generating trial sequences
+    according to given constraints using SAT sampling.}
+  \cvitem{Translated back-end from Haskell to Python, improving robustness to
+    reduce possible errors.}
+  \cvitem{Expanded expressive capabilities and improved user interface to
+    match.}
+  \cvitem{Implemented automated continuous integration with GitHub Actions.}
+
+  % Flux
+  \cvposition{2019--2020}{Research Associate}{PI:\ Eric Eide}
+  \cvinfo{Contributed to research on Xsmith: a Racket DSL for creating random
+    generators of semantically valid programs for any language. Xsmith is a
+    spiritual successor to Csmith.}
+  \cvitem{Implemented Xsmith's Python language specification.}
+  \cvitem{Implemented a dedicated library to improve Xsmith's capabilities for
+    exploring state spaces (Clotho).}
+  \cvitem{Published and presented \textit{Clotho: A Racket Library for
+      Parametric Randomness}.}
+
+  % U Combinator (post-graduation)
+  \cvposition{2018--2019}{Research Associate}{PI:\ Michael D. Adams}
+  \cvitem{Published and presented \textit{Parsing with Zippers}, a new general
+    parsing algorithm.}
+
+  % Apple Internship
+  \cvgap\cvsubheading{Apple, Inc.}{Cupertino, CA, USA}
+  \cvposition{Summer 2017}{Software Engineer Intern}{Apple Information Security}
+  \cvitem{Designed, built, and presented a secure framework for creating proxy
+    servers for penetration testing.}
+
+  % U Combinator (in-school)
+  \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
+  \cvposition{2016--2018}{Research Assistant}{PIs:\ Matt Might, Michael D.
+    Adams}
+  \cvinfo{Contributed to research on JAAM: a whole-program static analyzer
+    written in Scala built for identifying potential side-channel
+    vulnerabilities in compiled Java applications.}
+  \cvitem{Twice selected as one of three student lab members sent to DARPA
+    competition for evaluating JAAM.}
+  \cvitem{Initiated Viper project to self-direct research in programming
+    languages.}
+  \cvitem{Worked through half of \textit{Types and Programming Languages} to
+    learn foundations of PL research.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Publications
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Publications}
+
+\begin{cvlist}
+  \cvseparate[ICFP 2020]{\textit{Parsing with Zippers (Functional
+      Pearl).}}{\cvurl{pdarragh.github.io/p/icfp20}}
+  \cvinfo{\underline{Pierce Darragh} and Michael D. Adams.}
+  \cvseparate[Scheme 2020]{\textit{Clotho: A Racket Library for Parametric
+      Randomness.}}{\cvurl{pdarragh.github.io/p/scheme20}}
+  \cvinfo{\underline{Pierce Darragh}, William Gallard Hatch, and Eric Eide.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Projects
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Projects}
+
+\begin{cvlist}
+  \cvinfo[$\lambda_{vc}$]{A lambda calculus with variadic functions and
+    automatic currying.}
+  \cvinfo[Swift PwZ]{A Swift implementation of \textit{Parsing with Zippers}.}
+  \cvinfo[Viper]{A statically typed programming language implemented in Python.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Awards, Leadership, and Service
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Awards, Leadership, and Service}
+
+\begin{cvlist}
+  \cvaward{2021--Present}{Recipient of the Dean's Fellowship, sponsored by the
+    University of Maryland's CS department.}
+  \cvservice{2020--Present}{Community manager for Dr.\ Jean Yang's
+    \texttt{\#PLTalk} \cvurl[Twitch stream]{twitch.tv/jeanqasaur} and
+    \cvurl[Discord server]{discord.gg/TZvcCKrs4V}.}
+  \cvservice{2019--2021}{Organizer of weekly Programming Languages
+    Reading Group at the University of Utah.}
+  \cvservice{2014--2015}{Men's Team Captain, University of Utah Club Swim Team.}
+  \cvservice{2013, 2014}{Volunteer judge for elementary student projects at Salt
+    Lake Valley Science and Engineering Fair.}
+  \cvaward{2012--2016}{Recipient of the National Merit Scholarship, sponsored by
+    E\raisebox{0.2ex}{\textasteriskcentered{}}TRADE.}
+  \cvaward{2012--2013}{Recipient of the Merit Scholarship with Presidential
+    Honors, sponsored by the University of Utah.}
+\end{cvlist}
+
+\end{document}

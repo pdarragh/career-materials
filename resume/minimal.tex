@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+\usepackage{showframe}
+
+% No indentation.
+\setlength{\parindent}{0pt}
+
+% Declare a simple bullet-making command.
+\newcommand{\markitem}{\raisebox{0.4ex}{\footnotesize\textbullet}~}
+
+% Adjust longtable padding.
+\setlength\LTleft{0pt}
+% \setlength\LTright{0pt}
+\setlength\LTpre{1.3pt}  % A little pre-padding to look like a regular line.
+\setlength\LTpost{-1.3pt}
+
+\setlength{\tabcolsep}{0pt}
+
+\begin{document}
+
+YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg
+
+\begin{longtable}{p{1in} @{\extracolsep{0.25in}} p{6.25in}}
+  & \multicolumn{1}{c}{YgYg YgYg YgYg YgYg YgYg YgYg \hfill YgYg YgYg YgYg YgYg YgYg YgYg} \\
+  YgYg YgYg & YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg
+              YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg
+              YgYg YgYg YgYg YgYg YgYg YgYg \\
+  YgYg YgYg & \markitem YgYg YgYg YgYg YgYg YgYg YgYg \\
+  & \markitem  YgYg YgYg YgYg YgYg YgYg YgYg \\
+  YgYg YgYg & YgYg YgYg YgYg YgYg YgYg YgYg
+\end{longtable}
+
+YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg YgYg
+
+\end{document}

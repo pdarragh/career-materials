@@ -1,0 +1,124 @@
+####################
+##                ##
+##  BIOGRAPHICAL  ##
+##                ##
+####################
+
+[biographical]
+given_name = "Pierce"
+family_name = "Darragh"
+location = "University of Maryland, College Park, MD, USA"
+email = "pierce.darragh@gmail.com"
+website = "https://pdarragh.github.io"
+
+####################
+##                ##
+##   EDUCATION    ##
+##                ##
+####################
+
+[[degrees]]
+institution = "University of Maryland"
+location = "College Park, MD, USA"
+date = "Aug 2021--Present"
+degree = "PhD in Computer Science, specializing in Programming Languages"
+
+[[degrees]]
+institution = "University of Utah"
+location = "Salt Lake City, UT, USA"
+date = "May 2018"
+degree = "MS in Computer Science"
+gpa = "3.2/4"
+coursework = [ "compilers"
+             , "advanced OS"
+             , "advanced algorithms"
+             , "intermediate phonetics and phonology"
+             ]
+
+[[degrees]]
+institution = "University of Utah"
+location = "Salt Lake City, UT, USA"
+date = "May 2018"
+degree = "BS in Computer Science, Minor in Linguistics"
+gpa = "3.3/4"
+coursework = [ "natural language processing"
+             , "information extraction from text"
+             , "programming language semantics"
+             ]
+
+####################
+##                ##
+##  EXPERIENCES   ##
+##                ##
+####################
+
+[[experiences]]
+title = "Research Associate"
+employer = "SweetPea Research Group"
+employer_extra = "PI: Matthew Flatt"
+duration = "Aug 2020--Aug 2021"
+summary = """Worked on a domain-specific language written in Python for the\
+          description of randomized experimental designs. Users' designs were\
+          then submitted to SAT sampling to produce viable trial sequences for\
+          experimentation."""
+
+[[experiences]]
+title = "Research Associate"
+employer = "Flux Research Group"
+employer_extra = "PI: Eric Eide"
+duration = "Aug 2019--Aug 2020"
+summary = """Worked on a domain-specific language written in Racket for\
+          building semantically valid fuzz testers for any programming\
+          language."""
+
+[[experience]]
+title = "Research Assistant, Research Associate"
+employer = "U Combinator Research Group"
+employer_extra = "PI: Michael D. Adams"
+duration = "Jan 2016--Aug 2019"
+summary = "Some text here."
+
+[[experience]]
+title = "Software Engineer Intern"
+duration = "Jun 2017--Aug 2017"
+employer = "Apple, Inc."
+employer_extra = "Apple Information Security"
+summary = """Designed, built, and presents a new secure framework for\
+          instantiating proxy servers to be used for penetration testing and\
+          quality assurance."""
+
+####################
+##                ##
+##  PUBLICATIONS  ##
+##                ##
+####################
+
+[[publications]]
+title = "Parsing with Zippers (Functional Pearl)"
+authors = ["Pierce Darragh", "Michael D. Adams"]
+venue = "ICFP 2020"
+url = "https://doi.org/10.1145/3408990"
+
+[[publications]]
+title = "Clotho: A Racket Library for Parametric Randomness"
+authors = ["Pierce Darragh", "William Gallard Hatch", "Eric Eide"]
+venue = "Scheme 2020"
+url = "https://www.flux.utah.edu/paper/darragh-scheme20"
+
+####################
+##                ##
+##     AWARDS     ##
+##                ##
+####################
+
+[[awards]]
+date = "2021"
+title = "Dean's Fellowship"
+
+[[awards]]
+date = "2012--2016"
+title = "National Merit Scholarship. Sponsored by E*TRADE."
+
+[[awards]]
+data = "2012--2013"
+title = "Merit Scholarship with Presidential Honors. University of Utah."
