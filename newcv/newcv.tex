@@ -1,0 +1,290 @@
+\RequirePackage{fix-cm}
+\documentclass{article}
+
+\usepackage[margin=0.75in]{geometry}
+
+\usepackage[fontsize=11pt]{fontsize}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % To switch to Latin Modern
+\rmfamily % To load Latin Modern Roman and enable the following NFSS declarations.
+% Declare that Latin Modern Roman (lmr) should take
+% its bold (b) and bold extended (bx) weight, and small capital (sc) shape,
+% from the corresponding Computer Modern Roman (cmr) font, for the T1 font encoding.
+\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
+
+\usepackage{ragged2e}
+\usepackage{titlesec}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[longtable]{multirow}
+
+\newlength{\cvcolumngap}
+\newlength{\cvleftcolumnwidth}
+\newlength{\cvmiddlecolumnwidth}
+\newlength{\cvrightcolumnwidth}
+\newlength{\cvmaincolumnwidth}
+\setlength{\cvcolumngap}{0.25in}
+\setlength{\cvleftcolumnwidth}{1.5in}
+\setlength{\cvmiddlecolumnwidth}{2.5in}
+\setlength{\cvrightcolumnwidth}{2.5in}
+\setlength{\cvmaincolumnwidth}{\dimexpr\cvmiddlecolumnwidth +
+  \dimexpr\cvcolumngap + \dimexpr\cvrightcolumnwidth}
+
+\setlength{\parindent}{0pt}
+\setlength{\LTleft}{\parindent}
+\setlength{\LTright}{\fill}
+\setlength{\tabcolsep}{0pt}
+
+\usepackage[svgnames]{xcolor}
+
+% Enable URLs. Remove the default ugly boxes and color links in black.
+\usepackage[colorlinks=true]{hyperref}
+\colorlet{cvurlcolor}{DarkBlue}
+% Provide a custom underline that skips descenders.
+% This code was copy/pasted from:
+% https://alexwlchan.net/2017/10/latex-underlines/
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\renewcommand{\underline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+% Provide a custom URL display.
+\newcommand{\cvurl}[2][]{%
+  \def\cvurlText{#1}%
+  \ifx\cvurlText\empty
+    \def\cvurlText{#2}%
+  \else
+    % Do nothing.
+  \fi
+  \href{#1}{\color{cvurlcolor}\underline{\cvurlText}}%
+}
+
+% NOTE: Use these for checking layout.
+% \usepackage[unit=in]{fgruler}
+% \usepackage[pattern=majmin,patternsize=0.25in,fullpage]{gridpapers}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% CUSTOM COMMANDS
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\bullet}{\hspace{0.4em}\raisebox{0.4ex}{\scriptsize\textbullet}}
+\newcommand{\textplus}{\texttt{+}}
+\newcommand{\givenname}[1]{\fontsize{34pt}{37.4pt}\selectfont\textsc{\textls*[-10]{#1}}}
+\newcommand{\familyname}[1]{\givenname{\textbf{#1}}}
+
+\newenvironment{cvtable}
+{\begin{longtable}{%
+      @{}
+      >{\RaggedLeft}
+      p{\cvleftcolumnwidth}
+      @{\extracolsep{\cvcolumngap}}
+      p{\cvmiddlecolumnwidth}
+      @{\extracolsep{\cvcolumngap}}
+      >{\RaggedLeft}
+      p{\cvrightcolumnwidth}
+      @{}}}
+  {\end{longtable}}
+\newcommand{\cventrynormal}[2][]{#1 &
+  \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\ }
+\newcommand{\cventrystar}[2][]{#1 &
+  \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\* }
+\makeatletter
+\newcommand{\cvindent}{\hspace{0.25in}}
+\newcommand{\cvskip}{\@ifstar{ \\* }{ \\ }}
+\newcommand{\cventry}{\@ifstar{\cventrystar}{\cventrynormal}}
+\newcommand{\cvdetail}{\@ifstar{\cvdetailstar}{\cvdetailnormal}}
+\makeatother
+\newcommand{\cvitem}[2][]{\cventry[#1]{\bullet~#2}}
+\newcommand{\cvdetailnormal}[3]{#1 & #2 & #3 \\ }
+\newcommand{\cvdetailstar}[3]{#1 & #2 & #3 \\* }
+% \newcommand{\cventry}[2][]{#1 &
+%   \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\ }
+\newcommand{\cvright}[2][]{\cvdetail{#1}{}{#2}}
+\newcommand{\cvfullwidth}[1]{\multicolumn{3}{l}{\parbox{\textwidth}{#1}} \\ }
+\newcommand{\cvsubheading}[2][]{\cvskip\cvskip\cventry*[#1]{\LARGE
+    #2}\cvskip* }
+\newcommand{\cvsubsubheading}[2][]{\cventry*[#1]{\textsc{#2}}\cvskip* }
+
+\usepackage{booktabs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% DOCUMENT
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{cvtable}
+
+  % \cline{1-3}
+  \cvdetail{\multirow{2}{=}{\RaggedLeft\givenname{Pierce}}}
+  {\multirow{2}{=}{\familyname{Darragh}}}
+  {\raisebox{-3pt}{\cvurl[pierce.darragh@gmail.com]{mailto:pierce.darragh@gmail.com}}}
+  \cvright{\cvurl[pdarragh.github.io]{https://pdarragh.github.io}}
+  % \cline{1-3}
+
+  \cvskip\cvskip
+
+  \cvfullwidth{My research focuses on the design of programming language
+    features that improve the ability of developers to translate their thoughts
+    into code. I am particularly interested in advanced ergonomic static
+    analyses.}
+
+  \cvsubheading{Education}
+
+  \cventry*[In-Progress]{\textbf{University of Maryland}}
+  \cventry*{\cvindent{}PhD in Computer Science.}
+  \cventry{\cvindent{}Advised by David Van Horn.}
+
+  \cvskip
+
+  \cventry*[2018]{\textbf{University of Utah}}
+  \cventry*{\cvindent{}MS in Computer Science.}
+  \cventry{\cvindent{}BS in Computer Science, Minor in Linguistics.}
+
+  \cvsubheading{Research}
+
+  \cvsubsubheading{Publications}
+
+  \cventry[BRM 2021]{\textbf{SweetPea: A standard language for factorial experimental design.}}
+  \cventry{
+    \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
+      Authors: & Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan
+                 Sajjad Butt, \underline{Pierce Darragh}, Vivek Srikumar,
+                 Matthew Flatt, Jonathan D Cohen. \\
+      Date:    & April 2021. \\
+      Venue:   & Behavior Research Methods, volume 54, issue 2. \\
+      URL:     & \cvurl{pdarragh.github.io/p/sweetpea} \\
+    \end{tabular}}
+
+  \cvskip
+
+  \cventry[Scheme 2020]{\textbf{Clotho: A Racket Library for Parametric
+      Randomness.}}
+  \cventry{
+    \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
+      Authors: & \underline{Pierce Darragh}, William Hatch, and Eric Eide. \\
+      Date:    & August 2020. \\
+      Venue:   & Scheme and Functional Programming Workshop 2020. \\
+      URL:     & \cvurl{pdarragh.github.io/p/scheme20} \\
+    \end{tabular}}
+
+  \cvskip
+
+  \cventry[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
+  \cventry{
+    \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
+      Authors: & \underline{Pierce Darragh} and Michael D. Adams. \\
+      Date:    & August 2020. \\
+      Venue:   & PACMPL, volume 4, issue ICFP. \\
+      URL:     & \cvurl{pdarragh.github.io/p/icfp20} \\
+    \end{tabular}}
+
+  \cvskip
+
+  \cvsubsubheading{Presentations}
+
+  \cventry[RacketCon 2020]{\textbf{Clotho: A Racket Library for Parametric
+      Randomness.}}
+  \cventry[Scheme 2020]{\textbf{Clotho: A Racket Library for Parametric
+      Randomness.}}
+  \cventry[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
+
+  \cvskip
+
+  \cvsubsubheading{Selected Projects}
+
+  \cvdetail*{In-Progress}{\textbf{a86 Assembly
+      Interpreter}}{\cvurl{github.com/cmsc430/a86-interpreter}}
+  \cventry{UMD uses a restricted subset of the x86-64 assembly language (called
+    a86) for their undergraduate compilers course, which is implemented in
+    Racket. I am implementing a step-able interpreter with helpful feedback to
+    improve the student debugging experience.}
+
+  \cvskip
+
+  \cvdetail*{2020--2021}{\textbf{SweetPea}}{\cvurl{sweetpea-org.github.io}}
+  \cventry{A domain-specific language built for the declarative specification of
+    randomized experimental designs. I rewrote the back-end processing system
+    and revised the front-end API.}
+
+  \cvskip
+
+  \cvdetail*{2019--2020}{\textbf{Xsmith}}{\cvurl{www.flux.utah.edu/project/xsmith}}
+  \cventry{A generic fuzzer generator, built in the spirit of Csmith but
+    implemented as a domain-specific language in Racket. I implemented the
+    Python fuzzer specification and its necessary internal components, and also
+    developed a new Racket library (named Clotho) to improve Xsmith's
+    capabilities for exploring state spaces.}
+
+  \cvsubheading{Teaching}
+
+  \cvsubsubheading{Instructor}
+
+  \cventry*[Spring 2022]{\textbf{CMSC 388X: Introduction to Programming Language
+      Theory}}
+
+  \cventry{I developed a new undergraduate course with a labmate. Select topics
+    included:}
+  \cvitem{Syntactic theory (e.g., BNF grammars, metafunctions).}
+  \cvitem{Structural induction over syntax for proofs.}
+  \cvitem{Reduction and typing relations via small-step operational semantics.}
+  \cvitem{The lambda calculus.}
+  \cvitem{Extending the lambda calculus with types and recursion.}
+  \cventry{Students also formed small groups, and each group selected one paper
+    from a pre-approved list to read and present for discussion with the class.}
+
+  \cvskip
+
+  \cvsubsubheading{Graduate Teaching Assistant}
+
+  \cventry[Spring 2023]{\textbf{Compilers} --- CMSC 430}
+
+  \cventry[Fall 2022]{\textbf{Compilers} --- CMSC 430}
+
+  \cventry[Spring 2022]{\textbf{Advanced Functional Programming} --- CMSC 488B}
+
+  \cventry[Fall 2021]{\textbf{Programming Languages} --- CMSC 330}
+
+  \cvsubheading{Academic Service}
+
+  \cventry[2019--2021]{Organizer, programming languages reading group,
+    University of Utah.}
+  \cventry[2013 \& 2014]{Volunteer judge, Salt Lake Valley Science and
+    Engineering Fair.}
+
+  \cvsubheading{Awards}
+
+  \cventry[2021--Present]{Dean's Fellowship, University of Maryland.}
+  \cventry[2012--2016]{National Merit Scholarship, sponsored by
+    E{\textasteriskcentered}TRADE.}
+  \cventry[2012]{Merit Scholarship with Presidential Honors, University of
+    Utah.}
+
+  \cvsubheading{Industry Experience}
+
+  \cventry[Summer 2017]{\textbf{Apple, Inc.}, Software Engineer Intern}
+  \cventry{Designed, built, and presented a secure framework for automatically
+    creating proxy servers intended for use in internal penetration testing.}
+
+  \cvsubheading{Non-Academic Service and Leadership}
+
+  \cventry[2020--Present]{Moderator, /r/ProgrammingLanguages Discord server.}
+  \cventry[2020--2021]{Community manager, Jean Yang's \texttt{\#PLTalk} Twitch
+    stream and Discord server.}
+  \cventry[2014--2017]{Web administrator, University of Utah Club Swim Team.}
+  \cventry[2014--2015]{Men's team captain, University of Utah Club Swim Team.}
+\end{cvtable}
+
+\end{document}
