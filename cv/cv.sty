@@ -1,0 +1,259 @@
+\ProvidesPackage{cv}
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=cv,prefix=cv@}
+\DeclareStringOption[1in]{margin}
+\ProcessKeyvalOptions{cv}
+
+% Set 1-inch margins.
+\usepackage[margin=\cv@margin]{geometry}
+
+\usepackage{microtype}
+
+% Add advanced font support.
+% (This is primarily used for bold small-caps text.)
+\usepackage[T1]{fontenc}
+
+% Enable URLs. Remove the default ugly boxes and color links in black.
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}
+\urlstyle{same}
+
+% Enable fancy coloration, mostly used for the in-progress publications.
+\usepackage{xcolor}
+\newcommand*{\texttr}{\color{darkgray}}
+
+% Provide a custom underline that skips descenders.
+% This code was copy/pasted from:
+%   https://alexwlchan.net/2017/10/latex-underlines/
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\renewcommand{\underline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% FIXME: Can't get these versions to work, for some reason.
+% \newcommand{\cvurl}[1]{%
+%   \def\cvurlText{#1}%
+%   \colorlet{current}{.}%
+%   \href{#1}{\color{current}{\underline{\cvurlText}}}%
+% }
+% \newcommand{\cvurltext}[2]{%
+%   \colorlet{current}{.}%
+%   \href{#1}{\color{current}{\underline{#2}}}%
+% }
+
+\newcommand{\cvurl}[2][]{%
+  \def\cvurlText{#1}%
+  \ifx\cvurlText\empty
+    \def\cvurlText{#2}%
+  \else
+    % Do nothing.
+  \fi
+  % At some point, the colors started switching. I don't know why, but this
+  % handles it nicely.
+  \colorlet{current}{.}%
+  \href{#1}{\color{current}{\underline{\cvurlText}}}%
+}
+
+% Disable paragraph indentation. (This is important so the tabular environments
+% don't start with an indent, among other things.)
+\setlength{\parindent}{0pt}
+
+% Name.
+\newcommand\name[2]{\renewcommand\thegivenname{#1}\renewcommand\thefamilyname{#2}}
+\newcommand\thegivenname{\@latex@error{No \noexpand\name given}\@ehc}
+\newcommand\thefamilyname{\@latex@error{No \noexpand\name given}\@ehc}
+\newcommand\thefullname{\thegivenname\ \thefamilyname}
+\newcommand\theauthorname{\textbf{\thefullname}}
+
+% Location.
+\newcommand\location[1]{\renewcommand\thelocation{#1}}
+\newcommand\thelocation{\@latex@error{No \noexpand\location given}\@ehc}
+
+% Email address.
+\newcommand\email[1]{\renewcommand\theemail{#1}}
+\newcommand\theemail{\@latex@error{No \noexpand\email given}\@ehc}
+
+% Website.
+\newcommand\website[1]{\renewcommand\thewebsite{#1}}
+\newcommand\thewebsite{\@latex@error{No \noexpand\website given}\@ehc}
+
+% \DeclareRobustCommand{\makeheader}{%
+%   \begin{tabular*}{\textwidth}{@{} l @{\extracolsep{\fill}} r @{}}
+%     \Huge{\textsc{\thegivenname\ \bfseries \thefamilyname}}
+%     & \begin{tabular}{@{} r @{}}
+%         \cvurl[\theemail]{mailto:\theemail} \\
+%         \cvurl{\thewebsite} \\
+%       \end{tabular}
+%     \\
+%   \end{tabular*}
+% }
+
+\newlength{\cvleftcolumnwidth}
+\newlength{\cvcolumngap}
+\newlength{\cvrightcolumnwidth}
+\setlength{\cvleftcolumnwidth}{1.5in}
+\setlength{\cvcolumngap}{0.25in}
+\setlength{\cvrightcolumnwidth}{4.75in}
+
+% \newenvironment{scaletowidth}[1]%
+% {%
+%   \begingroup
+%   \lccode`\~=`\^^M
+%   \lowercase{%
+%     \endgroup
+%     \def~{%
+%       \def~{%
+%         \egroup%
+%         \endgraf%
+%         \strut\resizebox{#1}{!}{\box0}%
+%         \setbox0=\hbox\bgroup%
+%       }%
+%       \setbox0=\hbox\bgroup%
+%     }%
+%   }%
+%   \catcode`\^^M=\active
+% }{\egroup}
+
+% \usepackage{scrlayer}
+% \DeclareNewLayer[
+% foreground,
+% headsep,
+% hoffset=0in,
+% width=\paperwidth,
+% contents=\layercontentsmeasure
+% ]{measurelayer}
+% \DeclareNewPageStyleByLayers{measurestyle}{measurelayer}
+
+\usepackage{layout}
+
+\usepackage{graphicx}
+\newenvironment{scaletowidth}[1]%
+{%
+  \tabular{@{}
+    >{\setbox0=\hbox\bgroup}
+    l
+    <{\egroup\resizebox{#1}{!}{\box0}}
+    @{}
+  }%
+}{\endtabular}
+
+% Define command for rendering header.
+\DeclareRobustCommand{\makeheader}{%
+  \begin{scaletowidth}{1.5in}
+    \textsc{\thegivenname} \\
+  \end{scaletowidth}
+  % \linebreak
+  % \begin{tabular*}{\textwidth}{@{} l @{\extracolsep{\fill}} r @{}}
+  %   \Huge{\textsc{\thegivenname\ \textsc{\bfseries \thefamilyname}}}
+  %   & \raisebox{5pt}[0pt][0pt]{
+  %     \begin{tabular}{@{} r @{}}
+  %       \cvurl[\theemail]{mailto:\theemail} \\[1pt]
+  %       \cvurl{\thewebsite} \\
+  %     \end{tabular}}
+  %   \\
+  % \end{tabular*}
+}
+
+% % Define command for rendering header.
+% \DeclareRobustCommand{\makeheader}{%
+%   \begin{tabular*}{\textwidth}{@{} l @{\extracolsep{\fill}} r @{}}
+%     \begin{tabular}{@{} l @{}}
+%       \Huge{\textsc{\thegivenname}} \\
+%       \Huge{\textsc{\bfseries \thefamilyname}} \\
+%     \end{tabular}
+
+%     & \begin{tabular}{@{} r @{}}
+%         \thelocation \\[1.5pt]
+%         \cvurl[\theemail]{mailto:\theemail} \\[1.5pt]
+%         \cvurl{\thewebsite} \\
+%       \end{tabular}
+%     \\
+%   \end{tabular*}
+% }
+
+% Set custom section heading styles.
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\scshape\Large}{\thesection.}{0pt}{}
+\titlespacing{\section}{0pt}{0pt}{*1.0}
+\newcommand{\cvsection}[1]{\vspace{\baselineskip}\section*{\hspace{
+      1\cvleftcolumnwidth}\hspace{1\cvcolumngap}#1}}
+
+% Tabular layout environment for CV entries.
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{ragged2e}
+
+\setlength\LTleft{0pt}
+% \setlength\LTright{0pt}  % NOTE: Don't use this when setting specific widths.
+\setlength\LTpre{1.3pt}
+\setlength\LTpost{-1.3pt}
+
+\setlength{\tabcolsep}{0pt}
+
+\newenvironment{cvlist}
+{
+  \begin{longtable}{>{\RaggedLeft}p{\cvleftcolumnwidth} @{\extracolsep{\cvcolumngap}} p{\cvrightcolumnwidth}}
+}
+{
+  \end{longtable}
+}
+
+% When you need to put two things at opposite ends of their line.
+\newcommand{\separate}[2]{\multicolumn{1}{r}{#1 \hfill #2}}
+
+% Render a conference proceedings.
+\newcommand{\proceedings}[2][\@nil]{%
+  \emph{#2}%
+  \def\tmp{#1}%
+  \ifx\tmp\@nnil
+  %
+  \else
+  , \tmp
+  \fi%
+}
+
+% Command for nicer plus signs in text.
+\newcommand{\textplus}{\texttt{+}}
+
+% Helpful commands for manipulating the cvlist environment.
+\newcommand{\cvindent}{\hspace{0.25in}}
+\newcommand{\cvinfo}[2][]{#1 & #2 \\}
+\newcommand{\cvbullet}[1]{\hspace{0.4em}\raisebox{0.4ex}{\scriptsize\textbullet}~{#1}}
+\newcommand{\cvitem}[1]{& \cvbullet{#1}\\}
+\newcommand{\cvsubitem}[1]{& \cvindent\cvbullet{#1}\\}
+\newcommand{\cvgap}{\rule{0pt}{\baselineskip}}
+\newcommand{\cvmargin}[1]{\cvinfo[#1]{}}
+\newcommand{\cvseparate}[3][]{\cvinfo[#1]{\separate{#2}{#3}}}
+\newcommand{\cvsubheading}[3][]{\cvseparate[#1]{\textbf{#2}}{\textbf{#3}}}
+\newcommand{\cvinfoleft}[2][]{\cvinfo[#1]{#2}}
+\newcommand{\cvinforight}[2][]{\cvseparate[#1]{}{#2}}
+\newcommand{\cvposition}[3]{\cvseparate[#1]{\textit{#2}}{#3}}
+\newcommand{\cvdegree}[3][]{\cvposition{#2}{#3}{#1}}
+\newcommand{\cvpublication}[5]{  % FIXME: This one doesn't work right now.
+  \def\shortvenue{#1}
+  \def\title{#2}
+  \def\authors{#3}
+  \def\fullvenue{#4}
+  \def\puburl{#5}
+
+  \cvinfo[\shortvenue]{\title.}
+  \cvinfo{\cvhang{#3.}}
+  \ifx\fullvenue\empty
+    % Empty - do nothing.
+  \else
+    \cvinfo{\cvhang{In \fullvenue.}}
+  \fi
+  \ifx\puburl\empty
+    % Empty - do nothing.
+  \else
+    \cvinfo{\cvhang{\url{\puburl}}}
+  \fi
+}
+\newcommand{\cvtalk}[2]{\cvinfo[#1]{\textit{#2}}}
+\newcommand{\cvaward}[2]{\cvinfo[#1]{#2}}
+\newcommand{\cvservice}[2]{\cvinfo[#1]{#2}}

@@ -1,0 +1,222 @@
+\documentclass{article}
+
+\usepackage[fontsize=11pt]{fontsize}
+
+% We use 0.5in margins for the resume.
+\usepackage[margin=0.5in]{cv}
+
+% Disable page numbers.
+\pagenumbering{gobble}
+
+% Adjust column widths.
+\setlength{\cvleftcolumnwidth}{1in}
+\setlength{\cvrightcolumnwidth}{6.25in}
+
+% Set header information.
+\name{Pierce}{Darragh}
+\location{University of Maryland, MD, USA}
+\email{pierce.darragh@gmail.com}
+\website{pdarragh.github.io}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Biographical Information
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeheader{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Research Statement
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Abstract}
+
+\begin{cvlist}
+  \cvinfo{I investigate methods of improving the ease with which programmers can
+    translate their thoughts into code, primarily through static analysis and
+    language interfaces.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Education
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Education}
+
+\begin{cvlist}
+  \cvseparate[2021--Present]{PhD in Computer Science.}
+  {\textbf{University of Maryland}}
+  \cvinfo{Advised by David Van Horn.}
+  \cvgap
+  \cvseparate[2012--2018]{BS/MS in Computer Science.}
+  {\textbf{University of Utah}}
+  \cvinfo{Minor in Linguistics.}
+\end{cvlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Research
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Research}
+\begin{cvlist}
+  \cvinfo{\textbf{Publications}}
+  \cvinfo{\textit{SweetPea: A standard language for factorial experimental
+      design.}}
+
+
+  \cvseparate[2021]{\textit{SweetPea: A
+      standard language for factorial}}{\cvurl{pdarragh.github.io/p/sweetpea}}
+  \cvinfo{\textit{experimental design.}}
+\end{cvlist}
+
+\pagebreak
+\layout{}
+
+% \pagebreak
+
+% \begin{cvlist}
+%   %% UMD
+%   \cvsubheading{University of Maryland}{College Park, MD, USA}
+
+%   \cvposition{2022--Present}{Research Assistant}{PI: David Van Horn}
+%   \cvinfo{Research performed in pursuit of my PhD.}
+
+%   %% Utah
+%   \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
+
+%   % SweetPea
+%   \cvposition{2020--2021}{Research Associate}{PI:\ Matthew Flatt}
+%   \cvinfo{Contributed to research on SweetPea: a Python DSL for specifying
+%     factorial experimental designs and automatically generating trial sequences
+%     according to given constraints using SAT sampling.}
+%   \cvitem{Translated back-end from Haskell to Python, improving robustness to
+%     reduce possible errors.}
+%   \cvitem{Expanded expressive capabilities and improved user interface to
+%     match.}
+%   \cvitem{Implemented automated continuous integration with GitHub Actions.}
+
+%   % Flux
+%   \cvposition{2019--2020}{Research Associate}{PI:\ Eric Eide}
+%   \cvinfo{Contributed to research on Xsmith: a Racket DSL for creating random
+%     generators of semantically valid programs for any language. Xsmith is a
+%     spiritual successor to Csmith.}
+%   \cvitem{Implemented Xsmith's Python language specification.}
+%   \cvitem{Implemented a dedicated library to improve Xsmith's capabilities for
+%     exploring state spaces (Clotho).}
+%   \cvitem{Published and presented \textit{Clotho: A Racket Library for
+%       Parametric Randomness}.}
+
+%   % U Combinator (post-graduation)
+%   \cvposition{2018--2019}{Research Associate}{PI:\ Michael D. Adams}
+%   \cvitem{Published and presented \textit{Parsing with Zippers}, a new general
+%     parsing algorithm.}
+
+%   % U Combinator (in-school)
+%   \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
+%   \cvposition{2016--2018}{Research Assistant}{PIs:\ Matt Might, Michael D.
+%     Adams}
+%   \cvinfo{Contributed to research on JAAM: a whole-program static analyzer
+%     written in Scala built for identifying potential side-channel
+%     vulnerabilities in compiled Java applications.}
+%   \cvitem{Twice selected as one of three student lab members sent to DARPA
+%     competition for evaluating JAAM.}
+% \end{cvlist}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%
+% %% Non-Research Experience
+% %%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cvsection{Work Experience}
+
+% \begin{cvlist}
+%   %% UMD
+%   \cvsubheading{University of Maryland}{College Park, MD, USA}
+
+%   % All UMD TA positions.
+%   \cvinfo{\textit{Graduate Teaching Assistant}}
+
+%   \cvinfo[Fall 2022]{CMSC 430 --- Compilers}
+%   \cvitem{3 weekly office hours.}
+%   \cvitem{Answered additional student questions online via Discord.}
+%   \cvitem{Helped revise course material and assignments.}
+%   \cvitem{Began a86 Interpreter project (detailed elsewhere).}
+
+%   \cvinfo[Fall 2021]{CMSC 330 --- Programming Languages}
+%   \cvitem{11 weekly office hours.}
+%   \cvitem{Answered additional student questions online via Piazza.}
+%   \cvitem{Taught weekly discussion section.}
+%   \cvitem{Helped write and grade quizzes and exams.}
+%   \cvitem{Held thorough pre-exam review sessions.}
+
+%   %% Apple Internship
+%   \cvgap\cvsubheading{Apple, Inc.}{Cupertino, CA, USA}
+%   \cvposition{Summer 2017}{Software Engineer Intern}{Apple Information Security}
+%   \cvitem{Designed, built, and presented a secure framework for creating proxy
+%     servers for penetration testing.}
+% \end{cvlist}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%
+% %% Publications
+% %%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cvsection{Publications}
+
+% \begin{cvlist}
+%   %% SweetPea
+%   \cvseparate[BehRes 2021]{\textit{SweetPea: A standard language for factorial
+%       experimental design.}}{\cvurl{pdarragh.github.io/p/sweetpea}}
+%   %
+%   \cvinfo{Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan Sajjad Butt,
+%     \underline{Pierce Darragh}, Vivek Srikumar, Matthew Flatt, Jonathan D
+%     Cohen.}
+%   %% PwZ
+%   \cvseparate[ICFP 2020]{\textit{Parsing with Zippers (Functional
+%       Pearl).}}{\cvurl{pdarragh.github.io/p/icfp20}}
+%   %
+%   \cvinfo{\underline{Pierce Darragh} and Michael D. Adams.}
+%   %% Clotho
+%   \cvseparate[Scheme 2020]{\textit{Clotho: A Racket Library for Parametric
+%       Randomness.}}{\cvurl{pdarragh.github.io/p/scheme20}}
+%   %
+%   \cvinfo{\underline{Pierce Darragh}, William Gallard Hatch, and Eric Eide.}
+% \end{cvlist}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%
+% %% Awards, Leadership, and Service
+% %%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cvsection{Awards, Leadership, and Service}
+
+% \begin{cvlist}
+%   \cvaward{2021--Present}{Recipient of the Dean's Fellowship, sponsored by the
+%     University of Maryland's CS department.}
+%   \cvservice{2020--Present}{Community manager for Dr.\ Jean Yang's
+%     \texttt{\#PLTalk} \cvurl[Twitch stream]{twitch.tv/jeanqasaur} and
+%     \cvurl[Discord server]{discord.gg/TZvcCKrs4V}.}
+%   \cvservice{2019--2021}{Organizer of weekly Programming Languages
+%     Reading Group at the University of Utah.}
+%   \cvservice{2014--2015}{Men's Team Captain, University of Utah Club Swim Team.}
+%   \cvservice{2013, 2014}{Volunteer judge for elementary student projects at Salt
+%     Lake Valley Science and Engineering Fair.}
+%   \cvaward{2012--2016}{Recipient of the National Merit Scholarship, sponsored by
+%     E\raisebox{0.2ex}{\textasteriskcentered{}}TRADE.}
+%   \cvaward{2012--2013}{Recipient of the Merit Scholarship with Presidential
+%     Honors, sponsored by the University of Utah.}
+% \end{cvlist}
+
+\end{document}
