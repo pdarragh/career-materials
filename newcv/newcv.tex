@@ -116,6 +116,10 @@
 
 \usepackage{booktabs}
 
+\usepackage{makecell}
+\newcommand{\makecellr}[1]{\renewcommand\cellalign{rt}\makecell{#1}}
+\newcommand{\makecelll}[1]{\renewcommand\cellalign{lt}\makecell{#1}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -134,17 +138,17 @@
   \cvright{\cvurl[pdarragh.github.io]{https://pdarragh.github.io}}
   % \cline{1-3}
 
-  \cvskip\cvskip
+  % \cvskip\cvskip
 
-  \cvfullwidth{My research focuses on the design of programming language
-    features that improve the ability of developers to translate their thoughts
-    into code. I am particularly interested in advanced ergonomic static
-    analyses.}
+  % \cvfullwidth{My research focuses on the design of programming language
+  %   features that improve the ability of developers to translate their thoughts
+  %   into code. I am particularly interested in advanced ergonomic static
+  %   analyses.}
 
   \cvsubheading{Education}
 
   \cventry*[In-Progress]{\textbf{University of Maryland}}
-  \cventry*{\cvindent{}PhD in Computer Science.}
+  \cventry*{\cvindent{}PhD in Computer Science (Programming Languages).}
   \cventry{\cvindent{}Advised by David Van Horn.}
 
   \cvskip
@@ -157,7 +161,21 @@
 
   \cvsubsubheading{Publications}
 
-  \cventry[BRM 2021]{\textbf{SweetPea: A standard language for factorial experimental design.}}
+  \cventry[GPCE 2023]{\textbf{Generating Conforming Programs With Xsmith.}}
+  \cventry{
+    \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
+      Authors: & William Gallard Hatch, \underline{Pierce Darragh}, Sorawee
+                 Porncharoenwase, Guy Watson, Eric Eide. \\
+      Date:    & October 2023. \\
+      Venue:   & International Conference on Generative Programming: Concepts \&
+                 Experiences 2023. \\
+      URL:     & \cvurl{http://www.flux.utah.edu/paper/hatch-gpce23} \\
+    \end{tabular}}
+
+  \cvskip
+
+  \cventry[BRM 2021]{\textbf{SweetPea: A standard language for factorial
+      experimental design.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
       Authors: & Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan
@@ -174,7 +192,8 @@
       Randomness.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
-      Authors: & \underline{Pierce Darragh}, William Hatch, and Eric Eide. \\
+      Authors: & \underline{Pierce Darragh}, William Gallard Hatch, and Eric
+                 Eide. \\
       Date:    & August 2020. \\
       Venue:   & Scheme and Functional Programming Workshop 2020. \\
       URL:     & \cvurl{pdarragh.github.io/p/scheme20} \\
@@ -249,13 +268,43 @@
 
   \cvsubsubheading{Graduate Teaching Assistant}
 
-  \cventry[Spring 2023]{\textbf{Compilers} --- CMSC 430}
+  \cventry[Fall 2022--Present]{\textbf{CMSC 430: Compilers}}
+  \cventry{This course teaches students how to implement compilers in Racket for
+    languages of increasing complexity, targeting the x86 assembly language.}
+  \cvskip
+  \cventry{Over the past four semesters, I have been working with the course
+    instructors, Professors David Van Horn and José Manuel Calderón Trilla, to
+    improve the state of the course as it has exploded in popularity (enrollment
+    is \sim3x what it was when I started TAing). This has involved rewriting and
+    extending assignment autograders, developing new or alternate assignments,
+    and helping write suitable exams, in addition to my regular TA
+    responsibility of holding weekly office hours and being available online on
+    Piazza or Discord to answer student questions.}
+  \cvskip
+  \cventry{During this time, I have also been working on the \underline{a86
+      Assembly Interpreter} (see Selected Projects above). I intend for this
+    tool to be used as part of the class to help students understand assembly
+    execution in a more direct way.}
 
-  \cventry[Fall 2022]{\textbf{Compilers} --- CMSC 430}
+  \cvskip
 
-  \cventry[Spring 2022]{\textbf{Advanced Functional Programming} --- CMSC 488B}
+  \cventry[Spring 2023]{\textbf{CMSC 433: Programming Paradigms}}
+  \cventry{This course was loosely based on the previous semester's CMSC 488B
+    (below), which sought to teach students how to use Haskell by thinking
+    lazily and functionally.}
 
-  \cventry[Fall 2021]{\textbf{Programming Languages} --- CMSC 330}
+  \cvskip
+
+  \cventry[Spring 2022]{\textbf{CMSC 488B: Advanced Functional Programming}}
+  \cventry{This course taught students how to program in Haskell, including
+    discussions of basic category theory and the use of QuickCheck.}
+
+  \cvskip
+
+  \cventry[Fall 2021]{\textbf{CMSC 330: Programming Languages}}
+  \cventry{This required undergraduate course taught students about programming
+    in Ruby, OCaml, and Rust. It also introduced students to concepts in basic
+    programming language theory, including the lambda calculus.}
 
   \cvsubheading{Academic Service}
 
@@ -280,7 +329,7 @@
 
   \cvsubheading{Non-Academic Service and Leadership}
 
-  \cventry[2020--Present]{Moderator, /r/ProgrammingLanguages Discord server.}
+  \cventry[2020--2022]{Moderator, /r/ProgrammingLanguages Discord server.}
   \cventry[2020--2021]{Community manager, Jean Yang's \texttt{\#PLTalk} Twitch
     stream and Discord server.}
   \cventry[2014--2017]{Web administrator, University of Utah Club Swim Team.}
