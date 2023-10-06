@@ -41,16 +41,13 @@
   \cvsubheading{University of Maryland}{College Park, MD, USA}
   \cvdegree[\ ]{2021--Present}{PhD in Computer Science, advised by Dr. David Van
     Horn}
-  \cvinfo{Specializing in the usability of programming languages.}
-  \cvinfo{Selected coursework: program analysis (using Coq), randomized testing
-    and verification.}
 
   % U of U
   \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
   \cvdegree[GPA:\ 3.3/4]{2012--2018}{BS/MS in Computer Science, Minor in
     Linguistics}
-  \cvinfo{Selected coursework: operational semantics, compilers, advanced OS,
-    NLP, phonetics and phonology.}
+
+  \cvinfo{}
 \end{cvlist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,14 +59,23 @@
 \cvsection{Research and Industrial Experience}
 
 \begin{cvlist}
+  %% MARYLAND
   \cvsubheading{University of Maryland}{College Park, MD, USA}
 
-  % CMSC 330 TA
-  \cvposition{2021--Present}{Graduate Teaching Assistant}{CMSC 330 (Programming
-    Languages)}
-  \cvitem{Hold office hours, teach weekly discussion, and help write and grade
-    student quizzes and exams.}
+  % RA
+  \cvposition{2021--Present}{Graduate Research Assistant}{PI: David Van Horn}
+  \cvitem{Develop a86 interpreter and debugging environment for CMSC 430.}
+  \cvitem{Keep up to date with recent literature.}
 
+  % CMSC 430 TA
+  \cvposition{2022--Present}{Graduate Teaching Assistant}{CMSC 430: Compilers}
+  \cvitem{Hold office hours, answer online questions, and help write and grade
+    quizzes and exams.}
+  \cvitem{Implement and revise assignment autograders.}
+  \cvitem{Keep notes from student interactions to discuss course pedagogy with
+    instructors.}
+
+  %% UTAH
   \cvgap\cvsubheading{University of Utah}{Salt Lake City, UT, USA}
 
   % SweetPea
@@ -114,6 +120,8 @@
     vulnerabilities in compiled Java applications.}
   \cvitem{Twice selected as one of three student lab members sent to DARPA
     competition for evaluating JAAM.}
+
+  \cvinfo{}
 \end{cvlist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,6 +133,13 @@
 \cvsection{Publications}
 
 \begin{cvlist}
+  %% Xsmith
+  \cvseparate[GPCE 2023]{\textit{Generating Conforming Programs with
+      Xsmith.}}{\cvurl{http://www.flux.utah.edu/paper/hatch-gpce23}}
+  %
+  \cvinfo{William Gallard Hatch, \underline{Pierce Darragh}, Sorawee
+    Porncharoenwase, Guy Watson, Eric Eide.}
+
   %% SweetPea
   \cvseparate[BehRes 2021]{\textit{SweetPea: A standard language for factorial
       experimental design.}}{\cvurl{pdarragh.github.io/p/sweetpea}}
@@ -132,16 +147,20 @@
   \cvinfo{Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan Sajjad Butt,
     \underline{Pierce Darragh}, Vivek Srikumar, Matthew Flatt, Jonathan D
     Cohen.}
-  %% PwZ
-  \cvseparate[ICFP 2020]{\textit{Parsing with Zippers (Functional
-      Pearl).}}{\cvurl{pdarragh.github.io/p/icfp20}}
-  %
-  \cvinfo{\underline{Pierce Darragh} and Michael D. Adams.}
+
   %% Clotho
   \cvseparate[Scheme 2020]{\textit{Clotho: A Racket Library for Parametric
       Randomness.}}{\cvurl{pdarragh.github.io/p/scheme20}}
   %
   \cvinfo{\underline{Pierce Darragh}, William Gallard Hatch, and Eric Eide.}
+
+  %% PwZ
+  \cvseparate[ICFP 2020]{\textit{Parsing with Zippers (Functional
+      Pearl).}}{\cvurl{pdarragh.github.io/p/icfp20}}
+  %
+  \cvinfo{\underline{Pierce Darragh} and Michael D. Adams.}
+
+  \cvinfo{}
 \end{cvlist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,7 +174,7 @@
 \begin{cvlist}
   \cvaward{2021--Present}{Recipient of the Dean's Fellowship, sponsored by the
     University of Maryland's CS department.}
-  \cvservice{2020--Present}{Community manager for Dr.\ Jean Yang's
+  \cvservice{2020--2022}{Community manager for Dr.\ Jean Yang's
     \texttt{\#PLTalk} \cvurl[Twitch stream]{twitch.tv/jeanqasaur} and
     \cvurl[Discord server]{discord.gg/TZvcCKrs4V}.}
   \cvservice{2019--2021}{Organizer of weekly Programming Languages
