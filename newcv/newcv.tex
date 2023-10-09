@@ -110,9 +110,11 @@
 %   \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\ }
 \newcommand{\cvright}[2][]{\cvdetail{#1}{}{#2}}
 \newcommand{\cvfullwidth}[1]{\multicolumn{3}{l}{\parbox{\textwidth}{#1}} \\ }
-\newcommand{\cvsubheading}[2][]{\cvskip\cvskip\cventry*[#1]{\LARGE
-    #2}\cvskip* }
-\newcommand{\cvsubsubheading}[2][]{\cventry*[#1]{\textsc{#2}}\cvskip* }
+% \newcommand{\cvsubheading}[2][]{\cvskip\cvskip\cventry*[#1]{\LARGE #2}\cvskip* }
+\newcommand{\cvsubheading}[1]{\cvskip
+  \multicolumn{3}{l}{\parbox{\textwidth}{\LARGE #1}} \\ \cvskip* }
+% \newcommand{\cvsubsubheading}[2][]{\cventry*[#1]{\textsc{#2}}\cvskip* }
+\newcommand{\cvsubsubheading}[1]{\cvfullwidth{\textsc{#1}}\cvskip* }
 
 \usepackage{booktabs}
 
@@ -144,6 +146,7 @@
   %   features that improve the ability of developers to translate their thoughts
   %   into code. I am particularly interested in advanced ergonomic static
   %   analyses.}
+  \cvskip
 
   \cvsubheading{Education}
 
@@ -164,12 +167,16 @@
   \cventry[GPCE 2023]{\textbf{Generating Conforming Programs With Xsmith.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
-      Authors: & William Gallard Hatch, \underline{Pierce Darragh}, Sorawee
-                 Porncharoenwase, Guy Watson, and Eric Eide. \\
-      Date:    & October 2023. \\
-      Venue:   & International Conference on Generative Programming: Concepts \&
-                 Experiences 2023. \\
-      URL:     & \cvurl{http://www.flux.utah.edu/paper/hatch-gpce23} \\
+      Authors:  & William Gallard Hatch, \underline{Pierce Darragh}, Sorawee
+                  Porncharoenwase, Guy Watson, and Eric Eide. \\
+      Date:     & October 2023. \\
+      Venue:    & International Conference on Generative Programming: Concepts \&
+                  Experiences 2023. \\
+      URL:      & \cvurl{pdarragh.github.io/p/gpce23} \\
+      Synopsis: & Xsmith is a domain-specific language for implementing fuzzers
+                  that operate in the style of Csmith, implemented in Racket. We
+                  provide implementations for a handful of languages and report
+                  on bugs identified in some of their implementations. \\
     \end{tabular}}
 
   \cvskip
@@ -178,12 +185,16 @@
       experimental design.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
-      Authors: & Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan
-                 Sajjad Butt, \underline{Pierce Darragh}, Vivek Srikumar,
-                 Matthew Flatt, and Jonathan D Cohen. \\
-      Date:    & April 2021. \\
-      Venue:   & Behavior Research Methods, volume 54, issue 2. \\
-      URL:     & \cvurl{pdarragh.github.io/p/sweetpea} \\
+      Authors:  & Sebastian Musslick, Anastasia Cherkaev, Ben Draut, Ahsan
+                  Sajjad Butt, \underline{Pierce Darragh}, Vivek Srikumar,
+                  Matthew Flatt, and Jonathan D Cohen. \\
+      Date:     & April 2021. \\
+      Venue:    & Behavior Research Methods, volume 54, issue 2. \\
+      URL:      & \cvurl{pdarragh.github.io/p/sweetpea} \\
+      Synopsis: & We introduce SweetPea, a domain-specific language for
+                  specifying factorial experimental designs, implemented in
+                  Python. Although built with the field of psychology in mind,
+                  SweetPea can be used for most factorial experiments. \\
     \end{tabular}}
 
   \cvskip
@@ -192,11 +203,16 @@
       Randomness.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
-      Authors: & \underline{Pierce Darragh}, William Gallard Hatch, and Eric
-                 Eide. \\
-      Date:    & August 2020. \\
-      Venue:   & Scheme and Functional Programming Workshop 2020. \\
-      URL:     & \cvurl{pdarragh.github.io/p/scheme20} \\
+      Authors:  & \underline{Pierce Darragh}, William Gallard Hatch, and Eric
+                  Eide. \\
+      Date:     & August 2020. \\
+      Venue:    & Scheme and Functional Programming Workshop 2020. \\
+      URL:      & \cvurl{pdarragh.github.io/p/scheme20} \\
+      Synopsis: & Clotho is a Racket library that implements \textit{parametric
+                  randomness}, a style of (pseudo)random generation where
+                  external manipulations of recorded sampling events correspond
+                  to discrete changes in the structure of the output. It was
+                  built as part of the implementation of Xsmith. \\
     \end{tabular}}
 
   \cvskip
@@ -204,10 +220,15 @@
   \cventry[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
-      Authors: & \underline{Pierce Darragh} and Michael D. Adams. \\
-      Date:    & August 2020. \\
-      Venue:   & PACMPL, volume 4, issue ICFP. \\
-      URL:     & \cvurl{pdarragh.github.io/p/icfp20} \\
+      Authors:  & \underline{Pierce Darragh} and Michael D. Adams. \\
+      Date:     & August 2020. \\
+      Venue:    & PACMPL, volume 4, issue ICFP. \\
+      URL:      & \cvurl{pdarragh.github.io/p/icfp20} \\
+      Synopsis: & Parsing with Derivatives is a known technique for implementing
+                  a parser with an elegant theory, but which suffers from poor
+                  performance. Parsing with Zippers is built upon the same
+                  theory of parsing, but with a significant deviation in the
+                  traversal of the input that produces a significant speedup. \\
     \end{tabular}}
 
   \cvskip
@@ -216,6 +237,8 @@
 
   \cventry[RacketCon 2020]{\textbf{Clotho: A Racket Library for Parametric
       Randomness.}}
+  \cventry{I was invited to give this talk again after presenting at the Scheme
+    Workshop.}
   \cventry[Scheme 2020]{\textbf{Clotho: A Racket Library for Parametric
       Randomness.}}
   \cventry[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
@@ -253,7 +276,7 @@
 
   \cvsubheading{Teaching}
 
-  \cvsubsubheading{Instructor}
+  \cvsubsubheading{As Instructor}
 
   \cventry*[Spring 2022]{\textbf{CMSC 388X: Introduction to Programming Language
       Theory}}
@@ -270,7 +293,7 @@
 
   \cvskip
 
-  \cvsubsubheading{Graduate Teaching Assistant}
+  \cvsubsubheading{As Graduate Teaching Assistant}
 
   \cventry[Fall 2022--Present]{\textbf{CMSC 430: Compilers}}
   \cventry{This course teaches students how to implement compilers in Racket for
@@ -309,13 +332,6 @@
   \cventry{This required undergraduate course taught students about programming
     in Ruby, OCaml, and Rust. It also introduced students to concepts in basic
     programming language theory, including the lambda calculus.}
-
-  \cvsubheading{Academic Service}
-
-  \cventry[2019--2021]{Organizer, programming languages reading group,
-    University of Utah.}
-  \cventry[2013 \& 2014]{Volunteer judge, Salt Lake Valley Science and
-    Engineering Fair.}
 
   \cvsubheading{Awards}
 
