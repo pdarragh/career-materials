@@ -7,10 +7,12 @@
 \usepackage{microtype}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern} % To switch to Latin Modern
-\rmfamily % To load Latin Modern Roman and enable the following NFSS declarations.
-% Declare that Latin Modern Roman (lmr) should take
-% its bold (b) and bold extended (bx) weight, and small capital (sc) shape,
-% from the corresponding Computer Modern Roman (cmr) font, for the T1 font encoding.
+\rmfamily % To load Latin Modern Roman and enable the following NFSS
+% declarations.
+%
+% Declare that Latin Modern Roman (lmr) should take its bold (b) and bold
+% extended (bx) weight, and small capital (sc) shape, from the corresponding
+% Computer Modern Roman (cmr) font, for the T1 font encoding.
 \DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
 \DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
 
@@ -104,7 +106,7 @@
 \newcommand{\cventry}{\@ifstar{\cventrystar}{\cventrynormal}}
 \newcommand{\cvdetail}{\@ifstar{\cvdetailstar}{\cvdetailnormal}}
 \makeatother
-\newcommand{\cvitem}[2][]{\cventry[#1]{\bullet~#2}}
+\newcommand{\cvitem}[2][]{\cventry[#1]{\;\bullet~#2}}
 \newcommand{\cvdetailnormal}[3]{#1 & #2 & #3 \\ }
 \newcommand{\cvdetailstar}[3]{#1 & #2 & #3 \\* }
 % \newcommand{\cventry}[2][]{#1 &
@@ -113,7 +115,7 @@
 \newcommand{\cvfullwidth}[1]{\multicolumn{3}{l}{\parbox{\textwidth}{#1}} \\ }
 % \newcommand{\cvsubheading}[2][]{\cvskip\cvskip\cventry*[#1]{\LARGE #2}\cvskip* }
 \newcommand{\cvsubheading}[1]{\cvskip
-  \multicolumn{3}{l}{\parbox{\textwidth}{\LARGE #1}} \\ \cvskip* }
+  \multicolumn{3}{l}{\parbox{\textwidth}{\LARGE #1}} \\* \cvskip* }
 % \newcommand{\cvsubsubheading}[2][]{\cventry*[#1]{\textsc{#2}}\cvskip* }
 \newcommand{\cvsubsubheading}[1]{\cvfullwidth{\textsc{#1}}\cvskip* }
 
@@ -138,7 +140,7 @@
   \cvdetail{\multirow{2}{=}{\RaggedLeft\givenname{Pierce}}}
   {\multirow{2}{=}{\familyname{Darragh}}}
   {\raisebox{-3pt}{\cvurl[pierce.darragh@gmail.com]{mailto:pierce.darragh@gmail.com}}}
-  \cvright{\cvurl[pdarragh.github.io]{https://pdarragh.github.io}}
+  \cvright{\cvurl{https://pdarragh.github.io}}
   % \cline{1-3}
 
   % \cvskip\cvskip
@@ -161,11 +163,87 @@
   \cventry*{\cvindent{}MS in Computer Science.}
   \cventry{\cvindent{}BS in Computer Science, Minor in Linguistics.}
 
+  \cvsubheading{Teaching}
+
+  \cvsubsubheading{As Instructor}
+
+  \cventry*[Spring 2022]{\textbf{CMSC 388X: Introduction to Programming Language
+      Theory}}
+  \cventry{\cvurl{https://www.cs.umd.edu/class/spring2022/cmsc388X/}}
+  \cventry{I developed a new undergraduate course to teach undergraduate
+    students basic concepts in programming language theory. On one day of the
+    week we covered content roughly lifted from \textit{Types and Programming
+      Languages}, and on the other day of the week we had discussions on
+    assigned papers. Covered topics included:}
+  \cvitem{Syntactic theory (e.g., BNF grammars, metafunctions).}
+  \cvitem{Structural induction over syntax for constructing proofs.}
+  \cvitem{Reduction and typing relations via small-step operational semantics.}
+  \cvitem{The lambda calculus.}
+  \cvitem{Extending the lambda calculus with types and recursion.}
+  \cventry{To select the papers we read, students formed small groups and each
+    group had to choose a paper from a \cvurl[pre-approved
+    list]{https://www.cs.umd.edu/class/spring2022/cmsc388X/Papers.html} to read
+    and present for discussion with the class. Student feedback for the class
+    was overwhelmingly positive.}
+
+  \cvskip
+
+  \cvsubsubheading{As Graduate Teaching Assistant}
+
+  \cventry*[Fall 2022--Present]{\textbf{CMSC 430: Compilers}}
+  \cventry{\cvurl{https://www.cs.umd.edu/class/spring2025/cmsc430/}}
+  \cventry{This course teaches students how to implement compilers in Racket for
+    languages of increasing complexity, targeting the x86 assembly language.}
+  \cvskip
+  \cventry{Over the past eight semesters, I have worked with various course
+    instructors (Professors David Van Horn, José Manuel Calderón Trilla,
+    Milijana Surbatovich, and Anwar Mamat), to improve the course. My work has
+    included:}
+  \cvitem{Creating new assignments and modifying existing ones.}
+  \cvitem{Writing and grading midterm exams.}
+  \cvitem{Developing new instructional material (lecture notes, quizzes, etc.).}
+  \cvitem{Implementing new automated grading infrastructure.}
+  \cvitem{Analyzing course data to inform subsequent decisions and discussions.}
+  \cventry{I have also been working on the \underline{a86 Assembly Interpreter}
+    (see Selected Projects), which I intend to use for this class to guide
+    students' debugging efforts in a more systematic and course-specific
+    manner.}
+
+  \cvskip
+
+  \cventry*[2023--2024]{\textbf{Excellence in Teaching Award}}
+  \cventry{I was anonymously nominated for --- and subsequently selected to win
+    --- a departmental Excellence in Teaching Award for the 2023--2024 academic
+    year due to my efforts in TAing CMSC 430: Compilers (above). The department
+    chooses \sim 5 recipients for these awards each year, selected from among
+    all staff and faculty.}
+
+  \cvskip
+
+  \cventry*[Spring 2023]{\textbf{CMSC 433: Programming Paradigms}}
+  \cventry{This course was loosely based on the previous semester's CMSC 488B
+    (below), which taught students how to use Haskell by thinking lazily and
+    functionally.}
+
+  \cvskip
+
+  \cventry*[Spring 2022]{\textbf{CMSC 488B: Advanced Functional Programming}}
+  \cventry{This course taught students how to program in Haskell, including
+    discussions of basic category theory and the use of QuickCheck.}
+
+  \cvskip
+
+  \cventry*[Fall 2021]{\textbf{CMSC 330: Programming Languages}}
+  \cventry{This required undergraduate course taught students about programming
+    in Ruby, OCaml, and Rust. It also introduced students to concepts in basic
+    programming language theory, including the lambda calculus, operational
+    semantics, type-checking, parsing, and so on.}
+
   \cvsubheading{Research}
 
   \cvsubsubheading{Publications}
 
-  \cventry[GPCE 2023]{\textbf{Generating Conforming Programs With Xsmith.}}
+  \cventry*[GPCE 2023]{\textbf{Generating Conforming Programs With Xsmith.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
       Authors:  & William Gallard Hatch, \underline{Pierce Darragh}, Sorawee
@@ -182,7 +260,7 @@
 
   \cvskip
 
-  \cventry[BRM 2021]{\textbf{SweetPea: A standard language for factorial
+  \cventry*[BRM 2021]{\textbf{SweetPea: A standard language for factorial
       experimental design.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
@@ -200,7 +278,7 @@
 
   \cvskip
 
-  \cventry[Scheme 2020]{\textbf{Clotho: A Racket Library for Parametric
+  \cventry*[Scheme 2020]{\textbf{Clotho: A Racket Library for Parametric
       Randomness.}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
@@ -218,7 +296,7 @@
 
   \cvskip
 
-  \cventry[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
+  \cventry*[ICFP 2020]{\textbf{Parsing with Zippers (Functional Pearl).}}
   \cventry{
     \begin{tabular}{>{\RaggedLeft}p{0.75in}@{\extracolsep{0.125in}}p{4.37in}}
       Authors:  & \underline{Pierce Darragh} and Michael D. Adams. \\
@@ -250,14 +328,19 @@
 
   \cvdetail*{In-Progress}{\textbf{a86 Assembly
       Interpreter}}{\cvurl{github.com/cmsc430/a86-interpreter}}
-  \cventry{UMD uses a restricted subset of the x86-64 assembly language (called
-    a86) for their undergraduate compilers course, which is implemented in
-    Racket. I am implementing a step-able interpreter with helpful feedback to
-    improve the student debugging experience.}
+  \cventry{CMSC 430 has students implement compilers in Racket targeting a
+    restricted subset of the x86-64 assembly language, which we call ``a86.'' I
+    am implementing a step-able, time-traveling a86 interpreter with helpful,
+    course-tailored implementation details to improve the student debugging
+    experience.}
   \cvskip
-  \cventry{We also hope to expand the capabilities of the interpreter to use in
-    our automated grading systems. I am looking at tools like Python Tutor and
-    Learn-OCaml for inspiration.}
+  \cventry{Similar to efforts like Python Tutor and Learn-OCaml, I intend to
+    extend the capabilities of this interpreter to provide automated
+    course-specific feedback for students, such as hints for specific
+    assignments based on heuristics we use effectively as instructors already.
+    Additionally, I am developing a mechanism to synthesize information about
+    student submissions to our automated grading platform to support instructor
+    feedback in a setting with hundreds of students and too-few instructors.}
 
   \cvskip
 
@@ -275,76 +358,16 @@
     developed a new Racket library (named Clotho) to improve Xsmith's
     capabilities for exploring state spaces.}
 
-  \cvsubheading{Teaching}
+  \cvsubheading{Professional Experience}
 
-  \cvsubsubheading{As Instructor}
-
-  \cventry*[Spring 2022]{\textbf{CMSC 388X: Introduction to Programming Language
-      Theory}}
-
-  \cventry{I developed a new undergraduate course with a labmate. Select topics
-    included:}
-  \cvitem{Syntactic theory (e.g., BNF grammars, metafunctions).}
-  \cvitem{Structural induction over syntax for proofs.}
-  \cvitem{Reduction and typing relations via small-step operational semantics.}
-  \cvitem{The lambda calculus.}
-  \cvitem{Extending the lambda calculus with types and recursion.}
-  \cventry{Students also formed small groups, and each group selected one paper
-    from a pre-approved list to read and present for discussion with the class.}
+  \cventry*[2021--Present]{\textbf{University of Maryland}, Graduate Teaching
+    Assistant}
+  \cventry{Assisted in the instruction and execution of various courses during
+    my PhD.}
 
   \cvskip
 
-  \cvsubsubheading{As Graduate Teaching Assistant}
-
-  \cventry[Fall 2022--Present]{\textbf{CMSC 430: Compilers}}
-  \cventry{This course teaches students how to implement compilers in Racket for
-    languages of increasing complexity, targeting the x86 assembly language.}
-  \cvskip
-  \cventry{Over the past six semesters, I have been working with the course
-    instructors, Professors David Van Horn and José Manuel Calderón Trilla, to
-    improve the state of the course as it has exploded in popularity (enrollment
-    is \sim3x what it was when I started TAing). This has involved rewriting and
-    extending assignment autograders, developing new or alternate assignments,
-    and helping write suitable exams, in addition to my regular TA
-    responsibility of holding weekly office hours and being available online on
-    Piazza or Discord to answer student questions.}
-  \cvskip
-  \cventry{During this time, I have also been working on the \underline{a86
-      Assembly Interpreter} (see Selected Projects above). I intend for this
-    tool to be used as part of the class to help students understand assembly
-    execution in a more direct way.}
-
-  \cvskip
-
-  \cventry[Spring 2023]{\textbf{CMSC 433: Programming Paradigms}}
-  \cventry{This course was loosely based on the previous semester's CMSC 488B
-    (below), which sought to teach students how to use Haskell by thinking
-    lazily and functionally.}
-
-  \cvskip
-
-  \cventry[Spring 2022]{\textbf{CMSC 488B: Advanced Functional Programming}}
-  \cventry{This course taught students how to program in Haskell, including
-    discussions of basic category theory and the use of QuickCheck.}
-
-  \cvskip
-
-  \cventry[Fall 2021]{\textbf{CMSC 330: Programming Languages}}
-  \cventry{This required undergraduate course taught students about programming
-    in Ruby, OCaml, and Rust. It also introduced students to concepts in basic
-    programming language theory, including the lambda calculus.}
-
-  \cvsubheading{Awards}
-
-  \cventry[2021--Present]{Dean's Fellowship, University of Maryland.}
-  \cventry[2012--2016]{National Merit Scholarship, sponsored by
-    E{\textasteriskcentered}TRADE.}
-  \cventry[2012]{Merit Scholarship with Presidential Honors, University of
-    Utah.}
-
-  \cvsubheading{Experience}
-
-  \cventry[2020-2021]{\textbf{SweetPea Research Group, University of Utah},
+  \cventry*[2020--2021]{\textbf{SweetPea Research Group, University of Utah},
     Research Associate}
   \cventry{Rewrote implementation and expended functionality of
     \underline{SweetPea} under the direction of Matthew Flatt and in
@@ -353,8 +376,8 @@
 
   \cvskip
 
-  \cventry[2019-2020]{\textbf{Flux Research Group, University of Utah}, Research
-    Associate}
+  \cventry*[2019--2020]{\textbf{Flux Research Group, University of Utah},
+    Research Associate}
   \cventry{Developed new features for \underline{Xsmith} under the direction of
     Eric Eide, including support for alternate type systems and a random program
     generator for Python. Also developed a new library, \underline{Clotho}, to
@@ -363,17 +386,27 @@
 
   \cvskip
 
-  \cventry[2018-2019]{\textbf{U-Combinator Research Group, University of Utah},
-    Research Associate}
+  \cventry*[2018--2019]{\textbf{U-Combinator Research Group, University of
+      Utah}, Research Associate}
   \cventry{Worked with Michael Adams on various projects as an extension of
     research that had been started as an undergraduate. This work resulted in
     the publication of \underline{Parsing with Zippers}.}
 
   \cvskip
 
-  \cventry[Summer 2017]{\textbf{Apple, Inc.}, Software Engineer Intern}
+  \cventry*[Summer 2017]{\textbf{Apple, Inc.}, Software Engineer Intern}
   \cventry{Designed, built, and presented a secure framework for automatically
     creating proxy servers intended for use in internal penetration testing.}
+
+  \cvsubheading{Academic Awards}
+
+  \cventry[2023--2024]{Excellence in Teaching, University of Maryland Department
+    of Computer Science.}
+  \cventry[2021--Present]{Dean's Fellowship, University of Maryland.}
+  \cventry[2012--2016]{National Merit Scholarship, sponsored by
+    E{\textasteriskcentered}TRADE.}
+  \cventry[2012]{Merit Scholarship with Presidential Honors, University of
+    Utah.}
 
   \cvsubheading{Non-Academic Service and Leadership}
 
