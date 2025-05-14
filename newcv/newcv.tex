@@ -82,7 +82,7 @@
 \renewcommand{\bullet}{\hspace{0.4em}\raisebox{0.4ex}{\scriptsize\textbullet}}
 \newcommand{\textplus}{\texttt{+}}
 \newcommand{\givenname}[1]{\fontsize{34pt}{37.4pt}\selectfont\textsc{\textls*[-10]{#1}}}
-\newcommand{\familyname}[1]{\givenname{\textbf{#1}}}
+\newcommand{\familyname}[1]{\givenname{#1}}
 
 \newenvironment{cvtable}
 {\begin{longtable}{%
@@ -97,7 +97,7 @@
       @{}}}
   {\end{longtable}}
 \newcommand{\cventrynormal}[2][]{#1 &
-  \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\ }
+  \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\[2pt] }
 \newcommand{\cventrystar}[2][]{#1 &
   \multicolumn{2}{l}{\parbox{\cvmaincolumnwidth}{#2}} \\* }
 \makeatletter
@@ -106,7 +106,7 @@
 \newcommand{\cventry}{\@ifstar{\cventrystar}{\cventrynormal}}
 \newcommand{\cvdetail}{\@ifstar{\cvdetailstar}{\cvdetailnormal}}
 \makeatother
-\newcommand{\cvitem}[2][]{\cventry[#1]{\;\bullet~#2}}
+\newcommand{\cvitem}[2][]{\cventry*[#1]{\ \ \bullet~#2}}
 \newcommand{\cvdetailnormal}[3]{#1 & #2 & #3 \\ }
 \newcommand{\cvdetailstar}[3]{#1 & #2 & #3 \\* }
 % \newcommand{\cventry}[2][]{#1 &
@@ -169,41 +169,55 @@
 
   \cventry*[Spring 2022]{\textbf{CMSC 388X: Introduction to Programming Language
       Theory}}
-  \cventry{\cvurl{https://www.cs.umd.edu/class/spring2022/cmsc388X/}}
-  \cventry{I developed a new undergraduate course to teach undergraduate
-    students basic concepts in programming language theory. On one day of the
-    week we covered content roughly lifted from \textit{Types and Programming
-      Languages}, and on the other day of the week we had discussions on
-    assigned papers. Covered topics included:}
+  \cventry{Course website:
+    \cvurl{https://www.cs.umd.edu/class/spring2022/cmsc388X/}}
+  \cvskip
+  \cventry{I developed a new undergraduate course to teach students intermediate
+    concepts in programming language theory (assuming their prior experience
+    from CMSC 330; see below).}
+  \cvskip
+  \cventry{On one day of the week we covered content roughly lifted from
+    \textit{Types and Programming Languages} (Benjamin C. Pierce, 2002), and on
+    the other day of the week we discussed academic research papers students
+    were asked to read. To select the papers, students formed small groups and
+    each group had to choose a paper from a \cvurl[pre-approved
+    list]{https://www.cs.umd.edu/class/spring2022/cmsc388X/Papers.html} to read
+    and present for discussion with the class. Student feedback for the class
+    was overwhelmingly positive.}
+  \cvskip
+  \cventry*{Covered topics included:}
   \cvitem{Syntactic theory (e.g., BNF grammars, metafunctions).}
   \cvitem{Structural induction over syntax for constructing proofs.}
   \cvitem{Reduction and typing relations via small-step operational semantics.}
   \cvitem{The lambda calculus.}
   \cvitem{Extending the lambda calculus with types and recursion.}
-  \cventry{To select the papers we read, students formed small groups and each
-    group had to choose a paper from a \cvurl[pre-approved
-    list]{https://www.cs.umd.edu/class/spring2022/cmsc388X/Papers.html} to read
-    and present for discussion with the class. Student feedback for the class
-    was overwhelmingly positive.}
+  \cvskip
+  \cventry{In addition to the regular teaching work, I also developed a small
+    OCaml library with PPX support to be used by students; see
+    \underline{Camlrack} in Selected Projects.}
 
   \cvskip
 
   \cvsubsubheading{As Graduate Teaching Assistant}
 
   \cventry*[Fall 2022--Present]{\textbf{CMSC 430: Compilers}}
-  \cventry{\cvurl{https://www.cs.umd.edu/class/spring2025/cmsc430/}}
-  \cventry{This course teaches students how to implement compilers in Racket for
-    languages of increasing complexity, targeting the x86 assembly language.}
+  \cventry{Course website:
+    \cvurl{https://www.cs.umd.edu/class/spring2025/cmsc430/}}
   \cvskip
-  \cventry{Over the past eight semesters, I have worked with various course
-    instructors (Professors David Van Horn, José Manuel Calderón Trilla,
-    Milijana Surbatovich, and Anwar Mamat), to improve the course. My work has
-    included:}
+  \cventry{This course teaches students how to implement compilers in Racket for
+    languages of increasing complexity, targeting the x86 assembly language.
+    Over the past eight semesters, I have worked with the various course
+    instructors (Professors David Van Horn, Jos\'e Manuel Calder\'on Trilla,
+    Milijana Surbatovich, and Anwar Mamat), to improve the course.}
+  \cvskip
+  \cventry*{My work on CMSC 430 has included:}
   \cvitem{Creating new assignments and modifying existing ones.}
   \cvitem{Writing and grading midterm exams.}
   \cvitem{Developing new instructional material (lecture notes, quizzes, etc.).}
   \cvitem{Implementing new automated grading infrastructure.}
   \cvitem{Analyzing course data to inform subsequent decisions and discussions.}
+  \cvitem{Holding regular office hours and answer student questions online.}
+  \cvskip
   \cventry{I have also been working on the \underline{a86 Assembly Interpreter}
     (see Selected Projects), which I intend to use for this class to guide
     students' debugging efforts in a more systematic and course-specific
@@ -335,12 +349,22 @@
     experience.}
   \cvskip
   \cventry{Similar to efforts like Python Tutor and Learn-OCaml, I intend to
-    extend the capabilities of this interpreter to provide automated
-    course-specific feedback for students, such as hints for specific
+    extend the capabilities of the a86 interpreter to provide automated
+    course-specific feedback for students, such as providing hints for specific
     assignments based on heuristics we use effectively as instructors already.
     Additionally, I am developing a mechanism to synthesize information about
     student submissions to our automated grading platform to support instructor
     feedback in a setting with hundreds of students and too-few instructors.}
+
+  \cvskip
+
+  \cvdetail*{Spring
+    2022}{\textbf{Camlrack}}{\cvurl{github.com/pdarragh/camlrack}}
+  \cventry{For CMSC 388X, I wrote an OCaml library for writing and parsing
+    S-expressions, but with some PPX extensions to support a particular style of
+    pattern-matching consistent with the design of the
+    \texttt{\cvurl[s-exp-match?]{https://docs.racket-lang.org/plait/Predefined_Functions_and_Constants.html\#\%28def._\%28\%28lib._plait\%2Fmain..rkt\%29._s-exp-match~3f\%29\%29}}
+    function from the Plait language.}
 
   \cvskip
 
@@ -400,12 +424,12 @@
 
   \cvsubheading{Academic Awards}
 
-  \cventry[2023--2024]{Excellence in Teaching, University of Maryland Department
-    of Computer Science.}
-  \cventry[2021--Present]{Dean's Fellowship, University of Maryland.}
-  \cventry[2012--2016]{National Merit Scholarship, sponsored by
+  \cventry*[2023--2024]{Excellence in Teaching, University of Maryland
+    Department of Computer Science.}
+  \cventry*[2021--Present]{Dean's Fellowship, University of Maryland.}
+  \cventry*[2012--2016]{National Merit Scholarship, sponsored by
     E{\textasteriskcentered}TRADE.}
-  \cventry[2012]{Merit Scholarship with Presidential Honors, University of
+  \cventry*[2012]{Merit Scholarship with Presidential Honors, University of
     Utah.}
 
   \cvsubheading{Non-Academic Service and Leadership}
